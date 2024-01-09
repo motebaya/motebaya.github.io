@@ -1,0 +1,154 @@
+{
+  "waifu": {
+    "console_open_msg": [
+      "Haha, you've opened the console. Are you trying to see my secrets?"
+    ],
+    "copy_message": [
+      "What did you copy? Remember to add the source if you repost it"
+    ],
+    "screenshot_message": ["download texture model?"],
+    "hidden_message": ["change model?"],
+    "load_rand_textures": ["change skin /texture model?"],
+    "hour_tips": {
+      "t5-7": [],
+      "t7-11": [],
+      "t11-14": [],
+      "t14-17": [],
+      "t17-19": [],
+      "t19-21": [],
+      "t21-23": [],
+      "t23-5": [],
+      "default": ["hello!, welcome !"]
+    },
+    "referrer_message": {
+      "localhost": [
+        "Welcome to read <span style=\"color:#0099cc;\">『",
+        "』</span>",
+        " - "
+      ],
+      "default": [
+        "Hello! from <span style=\"color:#0099cc;\">",
+        "</span> friends!"
+      ],
+      "none": [
+        "Welcome to read <span style=\"color:#0099cc;\">『",
+        "』</span>",
+        " - "
+      ]
+    },
+    "referrer_hostname": {
+      "motebaya.github.io": ["hei!, welcome to my portofolio site!"]
+    },
+    "model_message": {
+      "1": ["From Potion Maker 的 Pio sauce ~"],
+      "2": ["From Potion Maker 的 Tia sauce ~"]
+    }
+  },
+  "mouseover": [
+    {
+      "selector": ".container a[href^='http']",
+      "text": [
+        "want to take a look <span style=\"color:#0099cc;\">{text}</span> huh？"
+      ]
+    },
+    {
+      "selector": ".fui-home",
+      "text": [
+        "Click to go to the homepage. If you want to go back to the previous page, you can use the browser's back function"
+      ]
+    },
+    {
+      "selector": ".fui-chat",
+      "text": [
+        "One word, one phrase. One frown, one smile. One character, one sentence. One heart, one rowing boat"
+      ]
+    },
+    {
+      "selector": ".fui-eye",
+      "text": ["Mmm... Do you want to switch the display character?"]
+    },
+    {
+      "selector": ".fui-user",
+      "text": ["Do you like changing outfits in Play?"]
+    },
+    {
+      "selector": ".fui-photo",
+      "text": ["Do you want to take a commemorative photo?"]
+    },
+    {
+      "selector": ".fui-info-circle",
+      "text": ["Here is information about me."]
+    },
+    {
+      "selector": ".fui-cross",
+      "text": ["Don't you like me anymore...?"]
+    },
+    {
+      "selector": ".image-avatar",
+      "text": ["this my github avatar, i find it on pixiv :<."]
+    },
+    {
+      "selector": ".image-cover",
+      "text": [
+        "cover image i find it from twitter, check my twitter account if you need a sauce XD."
+      ]
+    },
+    {
+      "selector": "#theme",
+      "text": ["hei, you can change theme by click it!"]
+    },
+    {
+      "selector": ".about-me",
+      "text": ["you read my bad summary XD"]
+    },
+    {
+      "selector": ".techstack",
+      "text": ["i'm familiar with them, even thought expert or not :<"]
+    },
+    {
+      "selector": ".skills",
+      "text": [
+        "it just subjective, don't mind it :). because Knowledge is vast, definitely can't be measured by a progress bar."
+      ]
+    },
+    {
+      "selector": ".connect-me",
+      "text": ["I hope we can be friends and talking about anyhing :)"]
+    },
+    {
+      "selector": ".certificate",
+      "text": ["certificate that i was collected from any sites"]
+    },
+    {
+      "selector": ".projectlist",
+      "text": [
+        "the list all of my project list created",
+        "don't you know why i make it this all?, yahh because i need it XD"
+      ]
+    },
+    {
+      "selector": ".back-to-top",
+      "text": ["back to top page?"]
+    },
+    {
+      "selector": ".waifu #live2d",
+      "text": [
+        "hei!, welcome to my simple website portofolio",
+        "this page build by githubpages environment",
+        "Mmmm.. i don't think to make more cool page, if can tell people 'who am i' it's ok"
+      ]
+    }
+  ],
+  "click": [
+    {
+      "selector": ".waifu #live2d",
+      "text": [
+        "Yes... It was...accidentally bumped into, right",
+        "What is a Lolicon?",
+        "Did you see my teddy bear?",
+        "If you touch me again, I may have to report you to the authorities! ⌇●﹏●⌇",
+        "Is this 110? There's a pervert here who keeps touching me (ó﹏ò｡)"
+      ]
+    }
+  ]
+}
