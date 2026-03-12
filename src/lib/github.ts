@@ -8,7 +8,7 @@ export type GitHubError =
   | { type: "invalid"; message: string };
 
 /** Repos to exclude from the project list (not actual projects) */
-const EXCLUDED_REPOS = [GITHUB_USERNAME];
+const EXCLUDED_REPOS = [GITHUB_USERNAME, "phpreborn", "motebaya.github.io"];
 
 function isGitHubRepoArray(data: unknown): data is GitHubRepo[] {
   if (!Array.isArray(data)) return false;
