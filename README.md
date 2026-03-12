@@ -51,7 +51,7 @@ npm run lint      # lint with ESLint
 ## References
 
 - Live2D widget: https://github.com/stevenjoezhang/live2d-widget
-- Pointer & cursor: https://custom-cursor.com/en/collection/anime/rz-sliaw-rem-flail
+- Pointer & cursor: https://sweezy-cursors.com/cursor/hanako-kun-yashiro-nene-animated/
 
 ## License
 
