@@ -55,13 +55,13 @@ This is where a console script comes in. If the browser can render the "Unfollow
 
 This script is designed to run on Facebook's **Following page**, accessible at:
 
-```
+```bash
 https://www.facebook.com/profile.php?sk=following
 ```
 
 Or equivalently:
 
-```
+```bash
 https://www.facebook.com/<your-username>/following
 ```
 
@@ -83,7 +83,7 @@ Before analyzing the code, it helps to understand the DOM structure that Faceboo
 
 Each followed account entry has a structure roughly like this:
 
-```
+```bash
 <div> (entry container)
   ├── <div> (left section: avatar + name)
   │     ├── <a aria-hidden="true" role="link" href="/profile-url">
@@ -191,7 +191,7 @@ This is the most brittle line in the entire script — and also the most interes
 
 **Starting point:** `x` is an `<a aria-hidden="true" role="link">` element — the profile picture link for one followed account.
 
-```
+```bash
 x                              → <a aria-hidden="true" role="link">  (profile picture link)
 x.parentElement                → <div>  (wrapper around the profile picture link)
 x.parentElement.parentElement  → <div>  (the left section: avatar + name area)
@@ -271,7 +271,7 @@ This is perhaps the most unusual line in the script. Instead of clicking the `<s
 
 **Why not click the span directly?** Facebook's dropdown menu items are structured with multiple nested wrapper elements:
 
-```
+```bash
 <div role="menuitem">           ← 4th parent (the actual clickable menu item)
   └── <div>                     ← 3rd parent
        └── <div>                ← 2nd parent
@@ -300,7 +300,7 @@ console.log(`[${xx}/${t.length}] Unfollowed -> ${x.href}`);
 
 **What this does:** Logs a progress message to the browser console after each successful unfollow. The format is:
 
-```
+```bash
 [0/47] Unfollowed -> https://www.facebook.com/SomeAccount
 [1/47] Unfollowed -> https://www.facebook.com/AnotherAccount
 ...
@@ -342,7 +342,7 @@ await new Promise((r) => setTimeout(r, 2000));
 
 Here's what happens for each entry in the Following list:
 
-```
+```bash
 For each followed account:
 │
 ├── [1] Find the <a> profile link (already selected)

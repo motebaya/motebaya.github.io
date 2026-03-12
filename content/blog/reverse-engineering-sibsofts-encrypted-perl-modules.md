@@ -56,7 +56,7 @@ This is a form of **obfuscation through encryption**, and as we will see, it pro
 
 The protection scheme works in three layers:
 
-```
+```bash
 ┌─────────────────────────────────────────────────────────────┐
 │  Layer 3: Session.pm (and other modules)                     │
 │  Contains: use Sibsoft::Filter; + Base64-encoded ciphertext  │
@@ -89,7 +89,7 @@ The end result: the Perl interpreter executes the original source code, but that
 
 The client's ZIP file contained the following structure:
 
-```
+```bash
 .
 ├── Modules
 │   └── Sibsoft
@@ -203,7 +203,7 @@ A `.pm` file is a Perl module — a reusable package of code. When you write `us
 
 The XS compilation process looks like this:
 
-```
+```bash
 module.xs  →  xsubpp  →  module.c  →  gcc  →  module.so
 (XS code)     (translator)  (C code)    (compiler) (shared object)
 ```
@@ -294,7 +294,7 @@ perl -MConfig -e '
 
 On my WSL2 system running Perl 5.34 on x86_64, the output was:
 
-```
+```bash
 Filter53464.so
 Filter534641.so
 Filter534642.so
@@ -321,7 +321,7 @@ strings -a Filter534641.so | egrep -i 'b64|cipher|Sibsoft|cbuf'
 
 Output (key findings):
 
-```
+```bash
 b64decode
 CipherInit
 CipherUpdate
@@ -349,7 +349,7 @@ readelf -s Filter534641.so | grep -E 'cbuf|Cipher|b64|Filter'
 
 This reveals the exported and local symbols, their addresses, sizes, and types. The critical finding:
 
-```
+```bash
 21: 0000000000005160   256 OBJECT  LOCAL  DEFAULT   25 cbuf
 ```
 
@@ -622,7 +622,7 @@ We already know from `readelf -s` that `cbuf` is at virtual address `0x5160`:
 readelf -s Filter534641.so | grep cbuf
 ```
 
-```
+```bash
 21: 0000000000005160   256 OBJECT  LOCAL  DEFAULT   25 cbuf
 ```
 
@@ -634,7 +634,7 @@ Now we need to find which LOAD segment contains virtual address `0x5160`. Let's 
 readelf -l Filter534641.so
 ```
 
-```
+```bash
 Program Headers:
   Type           Offset             VirtAddr           PhysAddr
                  FileSiz            MemSiz              Flags  Align
@@ -665,7 +665,7 @@ The fourth LOAD segment covers the range `[0x4DB0, 0x5288)`, and `0x5160` falls 
 
 Applying the formula:
 
-```
+```bash
 file_offset = Offset + (VirtAddr_of_cbuf - VirtAddr_of_segment)
 file_offset = 0x3DB0 + (0x5160 - 0x4DB0)
 file_offset = 0x3DB0 + 0x03B0
@@ -674,7 +674,7 @@ file_offset = 0x4160
 
 Wait — let me recalculate. `0x5160 - 0x4DB0 = 0x03B0`. And `0x3DB0 + 0x03B0 = 0x4160`. But the original article says `0x4430`. Let me recheck: the original notes show `0x5160 - 0x4DB0 = 0x03B0` and `0x3DB0 + 0x03B0 = 0x4160`. Actually, let me recompute more carefully:
 
-```
+```bash
 0x5160 - 0x4DB0:
   0x5160
 - 0x4DB0
@@ -682,7 +682,7 @@ Wait — let me recalculate. `0x5160 - 0x4DB0 = 0x03B0`. And `0x3DB0 + 0x03B0 = 
   0x03B0
 ```
 
-```
+```bash
 0x3DB0 + 0x03B0:
   0x3DB0
 + 0x03B0
@@ -718,7 +718,7 @@ xxd -g1 cbuf.bin | head
 
 This shows the raw hex bytes of the cipher key. The output will look something like:
 
-```
+```bash
 00000000: a3 7f 2c 91 b8 e4 5d 0a f6 33 c7 88 1e 6b d0 42  ..,...].3...k.B
 00000010: 59 af 74 13 ec 85 3f d6 07 ca 9e 61 b2 4d f8 26  Y.t...?....a.M.&
 ...

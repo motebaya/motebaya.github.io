@@ -117,7 +117,7 @@ Before diving into the workflow, it's important to understand why DOM selector s
 
 TikTok's frontend uses **CSS Modules** or a similar CSS-in-JS solution that generates unique, hashed class names at build time. For example, a modal footer might have a class like:
 
-```
+```bash
 common-modal-footer-3f8a2b1
 ```
 
@@ -193,7 +193,7 @@ TikTok imposes a **daily upload limit** that varies based on account quality, ag
 
 The entire workflow follows a linear sequence of 13 steps. Each step must complete before the next one begins, because each step depends on UI state created by the previous step. Here's the high-level overview before we dive deep into each step:
 
-```
+```bash
 ┌─────────────────────────────────────────────────────────────────────┐
 │                     TikTok Upload Workflow                          │
 ├─────────────────────────────────────────────────────────────────────┤
@@ -928,7 +928,7 @@ This is a comprehensive **state machine** that documents every possible status o
 
 The content check follows a linear state flow with multiple terminal states:
 
-```
+```bash
                                     ┌──────────────────┐
                                     │   status-ready    │
                                     │  "We'll check..." │

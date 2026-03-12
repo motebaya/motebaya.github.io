@@ -125,7 +125,7 @@ Python threads are **real OS threads** — they are scheduled by the operating s
 
 However, CPython's GIL ensures that **only one thread can execute Python bytecode at a time**. This means that even though you have multiple OS threads, they take turns running Python code. The critical exception is **I/O operations**: when a thread calls a C-level I/O function (like `socket.recv()` or `os.read()`), it **releases the GIL** before the system call and reacquires it afterward. This means multiple threads can wait on I/O simultaneously — which is why threading works well for I/O-bound tasks despite the GIL.
 
-```
+```bash
 Thread 1: [acquire GIL] → [run Python] → [release GIL → I/O wait...] → [acquire GIL] → [run Python]
 Thread 2:                                  [acquire GIL] → [run Python] → [release GIL → I/O wait...]
 Thread 3:                                                                  [acquire GIL] → [run Python]
@@ -137,7 +137,7 @@ The `ThreadPoolExecutor` from `concurrent.futures` is a managed thread pool that
 
 Asyncio is a **single-threaded event loop** that achieves concurrency through **cooperative multitasking**. Instead of the OS scheduling threads preemptively, coroutines voluntarily yield control back to the event loop whenever they encounter an `await` expression. The event loop then picks the next ready coroutine and resumes it.
 
-```
+```bash
 Event Loop (single thread):
   → start coroutine A → A awaits I/O → suspend A
   → start coroutine B → B awaits I/O → suspend B
@@ -245,7 +245,7 @@ For our experiment, this creates an interesting tension. The free-threaded build
 
 Our test system confirms the free-threaded build:
 
-```
+```bash
 $ python3.13t -c "import sys; print(sys._is_gil_enabled())"
 False
 
@@ -762,7 +762,7 @@ Before running the benchmarks, I captured the system's resource utilization to e
 
 ### System Resources at Benchmark Time
 
-```
+```bash
 Platform:         Windows 10 Pro 22H2 (Build 19045)
 Processor:        AMD Ryzen 5 5500U (6C/12T, 2.1 GHz base)
 Architecture:     AMD64
@@ -955,7 +955,7 @@ This seems contradictory. Removing the GIL should make threads faster, right? No
 
 The GIL, despite being a bottleneck for CPU-bound multi-threaded code, is actually an **extremely efficient lock for I/O-bound code**. Here is the lifecycle of a thread under the GIL during an I/O operation:
 
-```
+```bash
 [Acquire GIL: ~100ns] → [Execute Python: ~1μs] → [Release GIL: ~100ns] → [I/O wait: ~3s]
 ```
 

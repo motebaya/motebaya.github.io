@@ -170,7 +170,7 @@ If the workload were CPU-bound instead (e.g., computing Fibonacci numbers or cru
 
 All test functions make HTTP requests to the same endpoint:
 
-```
+```bash
 https://httpbin.org/delay/1.6
 ```
 
@@ -332,7 +332,7 @@ This approach uses **fiber-based cooperative multitasking** with a **non-blockin
 
 ### The Execution Timeline
 
-```
+```bash
 Time ─────────────────────────────────────────────────────────►
 
 Fiber 1: [start] ──► [send HTTP request] ──► [yield/wait] ──────────────────► [response received] ──► [done]
@@ -446,7 +446,7 @@ This is the **control group** — the simplest possible implementation with zero
 
 ### The Execution Timeline
 
-```
+```bash
 Time ─────────────────────────────────────────────────────────────────────────────────────────►
 
 Request 1: [start] ──────────── [waiting ~2.8s] ──────────── [done]
@@ -460,7 +460,7 @@ Each request must fully complete (including all network overhead) before the nex
 
 The result of **8.594 seconds** is the sum of three individual HTTP round trips:
 
-```
+```bash
 8.594 / 3 ≈ 2.86 seconds per request
 ```
 
@@ -642,7 +642,7 @@ The `concurrent-ruby` gem provides `Concurrent::Promise`, a high-level abstracti
 
 `Concurrent::Promise` follows a state machine model:
 
-```
+```bash
 [pending] ──execute──► [processing] ──success──► [fulfilled] (has value)
                                      ──failure──► [rejected]  (has reason)
 ```
@@ -919,7 +919,7 @@ However, since all concurrent tests show similar times (~3 seconds) and the sequ
 
 ### Raw Results
 
-```
+```bash
 Benchmark function: ASYNC_TEST finished at: 3.2570847679999133
 Benchmark function: ASYNC_ANOTHER_TEST finished at: 3.1932133710006383
 Benchmark function: SYNC_NORMAL_TEST finished at: 8.593838957999651
@@ -947,7 +947,7 @@ Benchmark function: SYNC_PARALLEL_TEST finished at: 2.997427269000582
 
 ### Visual Comparison
 
-```
+```bash
                                        Time (seconds)
                                   0    1    2    3    4    5    6    7    8    9
                                   |    |    |    |    |    |    |    |    |    |
@@ -986,7 +986,7 @@ The theoretical minimum time for 3 concurrent requests to `httpbin.org/delay/1.6
 
 The delay endpoint adds 1.6 seconds to the response, but the total round-trip includes:
 
-```
+```bash
 Single request time breakdown (approximate):
 ├── DNS resolution:        0.01 - 0.05s (cached after first)
 ├── TCP SYN/SYN-ACK/ACK:   0.05 - 0.20s (depends on distance to server)
