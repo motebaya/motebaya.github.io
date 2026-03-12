@@ -1,0 +1,165 @@
+{
+  "skills": [
+    {
+      "name": "Python",
+      "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg",
+      "description": "Started learning in August 2019. Primarily used for web scraping, bot automation, reverse engineering (bytecode/pyc), CLI tools, and Flask-based web servers. My first and most comfortable language."
+    },
+    {
+      "name": "Dart",
+      "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/dart/dart-original.svg",
+      "description": "I started learning this in 2023 when I joined an Android event, and I found Dart quite interesting to explore. Recently, I’ve also been using Dart with Flutter to build a mobile application."
+    },
+    {
+      "name": "Kotlin",
+      "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kotlin/kotlin-original.svg",
+      "description": "I started learning Kotlin around the same time as, or slightly before, Dart in 2023. It began when I attended a regional Android Developer event. In my view, Kotlin feels like a more low-level counterpart to Dart, since it handles many aspects of Android development directly without relying on additional modules.I once tried handling HLS media using Kotlin’s built-in capabilities, and it turned out to be much trickier compared to simply using a module in Dart. Recently, I’ve also been building an app called `vaulten-mobile`, which is designed to store account credentials for personal use."
+    },
+    {
+      "name": "JavaScript",
+      "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg",
+      "description": "I first got into JavaScript in 2021 when I realized how unique it is, it can run both in the browser and in the CLI without needing third-party tools. I also really like the syntax. Whenever I spend too much time writing Python and then switch back to JavaScript, it always feels a bit surprising. Python’s indentation rules are very strict...if it’s wrong, the code simply won’t run. With JavaScript, the structure feels more flexible. For some reason, I also feel more comfortable and lightweight working with JavaScript compared to Python. Over time, JavaScript has even replaced many CLI tasks that I used to do with Python. On top of that, the ecosystem keeps evolving quickly. Developers are creating new runtimes like Bun, which offers performance that can significantly surpass Node.js. That kind of progress makes me even more excited to keep using and learning JavaScript."
+    },
+    {
+      "name": "PHP",
+      "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg",
+      "description": "I started learning PHP around the same time as Python. At first, it happened when I tried to inspect a bot scraper script, but the code was obfuscated and unreadable. You might be familiar with tools like `yak-pro` or `ionCube` ..they’re commonly used by PHP developers to protect their source code. The more I explored it, the more types of obfuscation techniques I discovered. Some scripts replaced strings with unreadable ASCII sequences, used aggressive `goto` statements, or encoded strings using mathematical expressions, among many other tricks. Initially, I learned PHP mainly for reverse engineering purposes. But over time, I also began exploring other things with it, such as building websites with native PHP, creating CLI tools, and experimenting with other practical uses."
+    },
+    {
+      "name": "Ruby",
+      "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/ruby/ruby-original.svg",
+      "description": "Honestly, I started learning Ruby out of curiosity after seeing a friend build a CLI tool entirely with it. I asked him, “Why Ruby?” and he said, “Because the syntax is similar to Python.” In some ways, I agree. For example, defining functions with the `def` keyword feels quite similar to Python. But after trying to build a few programs with Ruby 'like a downloader' the results weren’t very satisfying for me. In my experience, it felt slower than Python. I also ran some tests using multithreading and parallel features, then compared the performance with Python. The results still showed Python performing better overall. You can see one of the tests here: https://gist.github.com/motebaya/cd89216dd41b0a23ed94158ca04bc248. Over time, I also realized that I’m not a big fan of Ruby’s syntax style. The lack of colons or brackets to clearly define scope sometimes makes it harder for me to read and write the code comfortably."
+    },
+    {
+      "name": "HTML & CSS",
+      "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg",
+      "description": "These two are fundamental basics for anyone who wants to become a web developer. In the past, I used them manually to build raw styles, such as testing table layouts and iterating UI elements.However, over time I’ve found myself working with them less directly. In my view, if a developer gets too absorbed in the fundamentals alone, they risk falling far behind the pace of modern and future technologies. "
+    },
+    {
+      "name": "Bash",
+      "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bash/bash-original.svg",
+      "description": "Used extensively since the Termux days on Android. Comfortable with shell scripting, automation pipelines, cron jobs, and Linux system administration."
+    },
+    {
+      "name": "TypeScript",
+      "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg",
+      "description": "Adopted for type-safe JavaScript development. Used in React and Node.js projects for better DX and fewer runtime errors."
+    }
+  ],
+  "technologies": [
+    {
+      "name": "React",
+      "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg"
+    },
+    {
+      "name": "Vue.js",
+      "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vuejs/vuejs-original.svg"
+    },
+    {
+      "name": "Node.js",
+      "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg"
+    },
+    {
+      "name": "Express",
+      "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original.svg"
+    },
+    {
+      "name": "Laravel",
+      "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg"
+    },
+    {
+      "name": "Flask",
+      "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flask/flask-original.svg"
+    },
+    {
+      "name": "Bootstrap",
+      "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg"
+    },
+    {
+      "name": "Tailwind CSS",
+      "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg"
+    },
+    {
+      "name": "jQuery",
+      "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jquery/jquery-original.svg"
+    },
+    {
+      "name": "Vite",
+      "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vitejs/vitejs-original.svg"
+    },
+    {
+      "name": "MySQL",
+      "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg"
+    },
+    {
+      "name": "SQLite",
+      "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sqlite/sqlite-original.svg"
+    },
+    {
+      "name": "MariaDB",
+      "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mariadb/mariadb-original.svg"
+    },
+    {
+      "name": "Git",
+      "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg"
+    },
+    {
+      "name": "GitHub Actions",
+      "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/githubactions/githubactions-original.svg"
+    },
+    {
+      "name": "NPM",
+      "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/npm/npm-original-wordmark.svg"
+    },
+    {
+      "name": "PNPM",
+      "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pnpm/pnpm-original.svg"
+    },
+    {
+      "name": "Hugo",
+      "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/hugo/hugo-original.svg"
+    },
+    {
+      "name": "React Native",
+      "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg"
+    },
+    {
+      "name": "YAML",
+      "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/yaml/yaml-original.svg"
+    }
+  ],
+  "operatingSystems": [
+    {
+      "name": "Windows 10",
+      "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/windows8/windows8-original.svg"
+    },
+    {
+      "name": "Windows 11",
+      "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/windows11/windows11-original.svg"
+    },
+    {
+      "name": "Linux",
+      "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg"
+    },
+    {
+      "name": "Fedora",
+      "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fedora/fedora-original.svg"
+    },
+    {
+      "name": "Ubuntu",
+      "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/ubuntu/ubuntu-original.svg"
+    },
+    {
+      "name": "Mint",
+      "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg"
+    },
+    {
+      "name": "Android",
+      "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/android/android-original.svg"
+    },
+    {
+      "name": "WSL2",
+      "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg"
+    }
+  ]
+}
