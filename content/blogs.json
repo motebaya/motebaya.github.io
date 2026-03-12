@@ -1,0 +1,90 @@
+[
+  {
+    "title": "Ruby Concurrency vs Parallelism for HTTP Workloads",
+    "description": "A deep dive into Ruby concurrency and parallelism through real HTTP request benchmarks, comparing async, threads, forks, promises, thread pools, and parallel execution for I/O-bound workloads.",
+    "tags": ["ruby", "http", "threading"],
+    "author": "motebaya",
+    "publishDate": "2026-03-11",
+    "blogUrl": "ruby-concurrency-vs-parallelism-for-http-workloads.md",
+    "thumbnail": "ruby-concurrency-vs-parallelism-for-http-workloads.webp",
+    "highlight": true
+  },
+  {
+    "title": "Automating Facebook Unfollow with Pure DOM JavaScript",
+    "description": "A lightweight browser console script that automates unfollowing Facebook accounts or pages by interacting directly with DOM elements and UI menus using pure JavaScript.",
+    "tags": [
+      "javascript",
+      "dom-automation",
+      "facebook",
+      "browser-console",
+      "web-automation",
+      "frontend"
+    ],
+    "author": "motebaya",
+    "publishDate": "2026-03-11",
+    "blogUrl": "automating-facebook-unfollow-using-pure-dom-javascript.md",
+    "thumbnail": "automating-facebook-unfollow-with-pure-dom-javascript.webp",
+    "highlight": false
+  },
+  {
+    "title": "Automating TikTok Video Upload & Scheduling with Playwright",
+    "description": "A practical breakdown of automating TikTok desktop uploads using Playwright. Learn how to handle file uploads, captions, scheduling, visibility settings, and TikTok’s built-in content checks inside a fully automated posting workflow.",
+    "tags": [
+      "playwright",
+      "tiktok automation",
+      "browser automation",
+      "javascript",
+      "web scraping",
+      "social media automation",
+      "dom automation",
+      "content scheduling",
+      "automation scripts",
+      "headless browser"
+    ],
+    "author": "motebaya",
+    "publishDate": "2026-03-11",
+    "blogUrl": "automating-tiktok-video-upload-scheduling-with-playwright.md",
+    "thumbnail": "automating-tiktok-video-upload-scheduling-with-playwright.webp",
+    "highlight": true
+  },
+  {
+    "title": "Python Async vs Sync I/O: A Cross-Version Benchmark Deep Dive",
+    "description": "A comprehensive experiment comparing async (aiohttp/aiofiles) vs sync (requests/ThreadPoolExecutor) I/O performance in Python, benchmarked across Python 3.10 through 3.13t (free-threaded/no-GIL) with real file and network workloads.",
+    "tags": [
+      "python",
+      "asyncio",
+      "threading",
+      "benchmark",
+      "concurrency",
+      "aiohttp",
+      "GIL",
+      "free-threaded"
+    ],
+    "author": "motebaya",
+    "publishDate": "2026-03-12",
+    "blogUrl": "python-async-vs-sync-io-a-cross-version-benchmark-deep-dive.md",
+    "thumbnail": "python-async-vs-sync-io-a-cross-version-benchmark-deep-dive.webp",
+    "highlight": true
+  },
+  {
+    "title": "Reverse Engineering SibSoft's Encrypted Perl Modules",
+    "description": "A step-by-step walkthrough of reverse engineering SibSoft's Perl source code protection scheme — from ELF binary analysis and Ghidra decompilation to extracting a 256-byte cipher key and reimplementing their RC4-variant decryption in Python.",
+    "tags": [
+      "reverse-engineering",
+      "perl",
+      "ghidra",
+      "cryptography",
+      "RC4",
+      "ELF",
+      "binary-analysis",
+      "XS",
+      "DynaLoader",
+      "security"
+    ],
+    "author": "motebaya",
+    "publishDate": "2026-03-12",
+    "blogUrl": "reverse-engineering-sibsofts-encrypted-perl-modules.md",
+    "thumbnail": "reverse-engineering-sibsofts-encrypted-perl-modules-from-base64-blob-to-readable-source.webp",
+    "highlight": true
+  }
+]
