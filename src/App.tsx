@@ -5,6 +5,7 @@ import { useTheme } from "@/hooks/useTheme";
 import { useLenis } from "@/hooks/useLenis";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import NotFoundPage from "@/pages/NotFoundPage";
 import Grid from "@/components/layout/Grid";
 import ProfileCard from "@/components/ProfileCard";
 import CertificateCard from "@/components/CertificateCard";
@@ -109,6 +110,7 @@ export default function App() {
                 </Suspense>
               }
             />
+            <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </main>
         <Footer />
