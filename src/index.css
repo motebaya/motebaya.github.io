@@ -1,0 +1,102 @@
+/* ── Highlight.js theme (GitHub Dark Dimmed) ── */
+@import "highlight.js/styles/github-dark-dimmed.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Custom Fonts ── */
+@font-face {
+  font-family: "SpaceGrotesk-Medium";
+  src: url("/fonts/SpaceGrotesk-Medium.ttf") format("truetype");
+  font-display: swap;
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Inter_18pt-Regular";
+  src: url("/fonts/Inter_18pt-Regular.ttf") format("truetype");
+  font-display: swap;
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* ── Custom Cursor ── */
+body {
+  cursor: url("/images/cursors/cursor.png"), auto;
+}
+
+a,
+button,
+[role="button"],
+input[type="submit"],
+.clickable {
+  cursor: url("/images/cursors/pointer.png"), pointer;
+}
+
+/* ── Base Styles ── */
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-surface-light font-body text-stone-900 antialiased transition-colors duration-300;
+  }
+
+  .dark body {
+    @apply bg-surface-dark text-stone-100;
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar {
+    @apply h-3 w-3;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-stone-100;
+  }
+
+  .dark ::-webkit-scrollbar-track {
+    @apply bg-stone-900;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply rounded-full border-2 border-solid border-stone-100 bg-blue-400;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-blue-500;
+  }
+
+  .dark ::-webkit-scrollbar-thumb {
+    @apply border-stone-900 bg-blue-500;
+  }
+
+  .dark ::-webkit-scrollbar-thumb:hover {
+    @apply bg-blue-400;
+  }
+
+  /* Firefox scrollbar */
+  * {
+    scrollbar-width: auto;
+    scrollbar-color: #60a5fa #f5f5f4;
+  }
+
+  .dark * {
+    scrollbar-color: #3b82f6 #1c1917;
+  }
+}
+
+/* ── Reduced Motion ── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
