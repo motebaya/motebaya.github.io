@@ -1,1 +1,8 @@
+node_modules/
+dist/
 trash/**/*
+.env
+.env.local
+*.tsbuildinfo
+prompt.txt
+__pycache__/**/*
