@@ -1,8 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Home, Camera, X, Shirt } from "lucide-react";
 import { useLive2D } from "@/hooks/useLive2D";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
+
+const MOBILE_BREAKPOINT = 768;
+const MOBILE_SCALE = 0.55;
 
 export default function Live2DWidget() {
   const {
@@ -16,7 +19,16 @@ export default function Live2DWidget() {
     getHiddenMessage,
   } = useLive2D();
   const [hidden, setHidden] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const prefersReduced = useReducedMotion();
+
+  // Detect mobile viewport and listen for resize
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < MOBILE_BREAKPOINT);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
 
   const handleScrollTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -53,7 +65,11 @@ export default function Live2DWidget() {
   return (
     <div
       className="waifu-container fixed bottom-0 left-0 z-30 select-none"
-      style={{ touchAction: "none" }}
+      style={{
+        touchAction: "none",
+        transformOrigin: "bottom left",
+        transform: isMobile ? `scale(${MOBILE_SCALE})` : undefined,
+      }}
     >
       {/* Tooltip */}
       <AnimatePresence>
