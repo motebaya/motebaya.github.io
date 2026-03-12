@@ -1,0 +1,105 @@
+{
+  "waifu": {
+    "console_open_msg": ["ciallo~ you opened the console! looking for secrets?"],
+    "copy_message": ["uwu~ what did you copy? remember to credit the source if you repost it~"],
+    "screenshot_message": ["taking a screenshot of me? how sweet~"],
+    "hidden_message": ["changing model? okay~"],
+    "load_rand_textures": ["new outfit? let me try it on~ ciallo~"],
+    "hour_tips": {
+      "t5-7": ["good morning~ you're up early! ciallo~"],
+      "t7-11": ["morning~ have a productive day ahead!"],
+      "t11-14": ["lunchtime~ don't forget to eat something nice~"],
+      "t14-17": ["good afternoon~ keep going, you're doing great~"],
+      "t17-19": ["evening already~ time flies when you're coding~"],
+      "t19-21": ["uwu~ winding down? hope you had a good day~"],
+      "t21-23": ["it's getting late~ don't stay up too long~"],
+      "t23-5": ["still awake? ciallo~ take care of yourself~"],
+      "default": ["ciallo~ welcome to my portfolio!"]
+    },
+    "referrer_message": {
+      "localhost": ["ciallo~ you're viewing this locally!"],
+      "default": ["ciallo~ welcome, friend!"],
+      "none": ["ciallo~ welcome to my portfolio!"]
+    },
+    "referrer_hostname": {
+      "motebaya.github.io": ["ciallo~ welcome to my portfolio site!"]
+    },
+    "model_message": {
+      "1": ["Pio from Potion Maker~ ciallo~"],
+      "2": ["Tia from Potion Maker~ uwu~"]
+    }
+  },
+  "mouseover": [
+    {
+      "selector": "[data-live2d-hover='cover']",
+      "text": ["that's my cover image~ i found it on twitter, pretty right?"]
+    },
+    {
+      "selector": "[data-live2d-hover='avatar']",
+      "text": ["that's my github avatar~ found it on pixiv~ ciallo~"]
+    },
+    {
+      "selector": "[data-live2d-hover='theme']",
+      "text": ["uwu~ you can switch between dark and light mode~"]
+    },
+    {
+      "selector": "[data-live2d-hover='about']",
+      "text": ["reading about me? ciallo~ hope it's interesting~"]
+    },
+    {
+      "selector": "[data-live2d-hover='skills']",
+      "text": ["skills are vast~ can't really measure them with a bar, right?"]
+    },
+    {
+      "selector": "[data-live2d-hover='socials']",
+      "text": ["let's be friends~ ciallo~ reach out anytime~"]
+    },
+    {
+      "selector": "[data-live2d-hover='certs']",
+      "text": ["certificates i collected along the way~"]
+    },
+    {
+      "selector": "[data-live2d-hover='projects']",
+      "text": [
+        "these are my projects~ i build them because i need them~",
+        "ciallo~ check them out on github!"
+      ]
+    },
+    {
+      "selector": "[data-live2d-hover='back-to-top']",
+      "text": ["going back to top? ciallo~"]
+    },
+    {
+      "selector": "a[href^='http']",
+      "text": ["uwu~ want to visit that link?"]
+    },
+    {
+      "selector": "[data-live2d-hover='article']",
+      "text": ["uwu~ this is my personal article and blogs :). feel free to read it ."]
+    },
+    {
+      "selector": "[data-live2d-hover='projects']",
+      "text": [
+        "Hey, these are some projects I’ve worked on in my spare time. Feel free to check them out!",
+        "Fyi ~ There are actually more projects on my local computer, but I haven’t published them :(.",
+        "Most of the projects on my GitHub are personal and mainly built for my own use."
+      ]
+    },
+    {
+      "selector": "[data-live2d-hover='article-card']",
+      "text": ["yaho ~ Some articles I’ve written", "^_^ Want to read my articles? Just click"]
+    }
+  ],
+  "click": [
+    {
+      "selector": "#live2d",
+      "text": [
+        "ciallo~ did you just poke me?",
+        "uwu~ that tickles!",
+        "hey~ be gentle please~",
+        "ciallo ciallo~ what's up?",
+        "poke me again and i might blush~"
+      ]
+    }
+  ]
+}
