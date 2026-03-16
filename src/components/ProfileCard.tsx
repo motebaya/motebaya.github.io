@@ -20,7 +20,9 @@ const ICON_MAP: Record<string, typeof Github> = {
 const PREVIEW_CUTOFF = 2;
 
 function splitMarkdown(md: string): [string, string] {
-  const paragraphs = md.trim().split(/\n\n+/);
+  // Normalise CRLF → LF so the blank-line split works on every OS
+  const normalised = md.replace(/\r\n/g, "\n");
+  const paragraphs = normalised.trim().split(/\n\n+/);
   const preview = paragraphs.slice(0, PREVIEW_CUTOFF).join("\n\n");
   const rest = paragraphs.slice(PREVIEW_CUTOFF).join("\n\n");
   return [preview, rest];
@@ -67,9 +69,7 @@ export default function ProfileCard() {
         </div>
 
         {/* Name */}
-        <h1 className="mb-3 font-heading text-2xl text-stone-800 dark:text-stone-100">
-          Motebaya
-        </h1>
+        <h1 className="mb-3 font-heading text-2xl text-stone-800 dark:text-stone-100">Motebaya</h1>
 
         {/* Bio */}
         <section aria-label="About me" data-live2d-hover="about">
