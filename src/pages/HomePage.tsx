@@ -78,7 +78,7 @@ export default function HomePage() {
             sameAs: [
               "https://github.com/motebaya",
               "https://t.me/dvinchii",
-              "https://x.com/vinds71",
+              "https://x.com/vinsmochi71",
               "https://www.youtube.com/@ItsMochino",
             ],
             knowsAbout: ["Python", "JavaScript", "PHP", "Ruby", "Web Scraping", "Automation"],
