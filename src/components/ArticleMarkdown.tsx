@@ -9,6 +9,13 @@ import CodeBlock from "@/components/CodeBlock";
  * - Links: external icon for http(s) links, styled with accent color
  */
 export const articleComponents: Components = {
+  table: ({ children }) => (
+    <div className="my-6 w-full overflow-x-auto">
+      <table className="w-full table-auto border-collapse">{children}</table>
+    </div>
+  ),
+  th: ({ children }) => <th className="break-words border px-3 py-2 text-left">{children}</th>,
+  td: ({ children }) => <td className="break-words border px-3 py-2 align-top">{children}</td>,
   code({ className, children, ...props }) {
     // Fenced code block: has a className like "language-python"
     const match = /language-(\w+)/.exec(className || "");
@@ -17,7 +24,7 @@ export const articleComponents: Components = {
     if (isInline) {
       return (
         <code
-          className="rounded bg-stone-100 px-1.5 py-0.5 font-mono text-[13px] text-stone-800 dark:bg-stone-800 dark:text-stone-200"
+          className="whitespace-pre-wrap break-all rounded bg-stone-100 px-1.5 py-0.5 font-mono text-[13px] text-stone-800 dark:bg-stone-800 dark:text-stone-200"
           {...props}
         >
           {children}
@@ -37,28 +44,21 @@ export const articleComponents: Components = {
   a({ href, children, ...props }) {
     const isExternal = href?.startsWith("http");
 
-    if (isExternal) {
+    const className =
+      "text-accent underline decoration-accent/30 underline-offset-4 transition-colors hover:decoration-accent break-words [overflow-wrap:anywhere]";
+
+    if (!isExternal) {
       return (
-        <a
-          href={href}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-1 text-accent underline decoration-accent/30 underline-offset-4 transition-colors hover:decoration-accent"
-          {...props}
-        >
+        <a href={href} className={className} {...props}>
           {children as ReactNode}
-          <ExternalLinkIcon size={12} className="shrink-0" />
         </a>
       );
     }
 
     return (
-      <a
-        href={href}
-        className="text-accent underline decoration-accent/30 underline-offset-4 transition-colors hover:decoration-accent"
-        {...props}
-      >
-        {children as ReactNode}
+      <a href={href} target="_blank" rel="noopener noreferrer" className={className} {...props}>
+        {children as ReactNode}{" "}
+        <ExternalLinkIcon size={12} className="inline-block align-text-top" />
       </a>
     );
   },
