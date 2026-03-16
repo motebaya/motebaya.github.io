@@ -4,10 +4,12 @@ import { ArrowLeft, Calendar, Clock, User } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import Skeleton from "@/components/ui/Skeleton";
+import BackToTop from "@/components/BackToTop";
 import { articleComponents } from "@/components/ArticleMarkdown";
 import { formatRelativeDate, formatAbsoluteDate, estimateReadingTime } from "@/lib/blog";
 import type { BlogPost } from "@/types/content";
 import blogsData from "@content/blogs.json";
+import { Helmet } from "react-helmet-async";
 
 const allPosts = blogsData as BlogPost[];
 
@@ -18,6 +20,14 @@ export default function BlogArticlePage() {
   const [notFound, setNotFound] = useState(false);
 
   const post = allPosts.find((p) => p.blogUrl.replace(/\.md$/, "") === slug);
+  const siteName = "Portofolio - Motebaya";
+  const baseUrl = "https://motebaya.github.io";
+  const canonicalUrl = post
+    ? `${baseUrl}/blogs/${post.blogUrl.replace(/\.md$/, "")}`
+    : `${baseUrl}/blogs`;
+  const ogImageUrl = post
+    ? `${baseUrl}/images/blog/${post.thumbnail}`
+    : `${baseUrl}/images/og-default.webp`;
 
   useEffect(() => {
     if (!post) {
@@ -77,25 +87,52 @@ export default function BlogArticlePage() {
     const bar = progressRef.current;
     if (!bar) return;
 
-    // Position bar directly below the sticky header
     const header = document.querySelector("header");
-    if (header) {
-      bar.style.top = `${header.getBoundingClientRect().height}px`;
-    }
+    let headerHeight = header ? header.getBoundingClientRect().height : 0;
+
+    const updateBarPosition = () => {
+      if (!header) return;
+      const isHidden = header.getAttribute("data-header-hidden") === "true";
+      if (isHidden) {
+        // Header is hidden (translated up) — stick bar to top of viewport
+        bar.style.top = "0px";
+      } else {
+        bar.style.top = `${headerHeight}px`;
+      }
+    };
 
     const updateProgress = () => {
       const scrollTop = window.scrollY;
       const docHeight = document.documentElement.scrollHeight - window.innerHeight;
       const progress = docHeight > 0 ? Math.min(scrollTop / docHeight, 1) : 0;
-      bar.style.width = `${progress * 100}%`;
+      // Use scaleX transform instead of width to avoid triggering layout / overflow
+      bar.style.transform = `scaleX(${progress})`;
+      updateBarPosition();
     };
 
     const onResize = () => {
       if (header) {
-        bar.style.top = `${header.getBoundingClientRect().height}px`;
+        headerHeight = header.getBoundingClientRect().height;
       }
       updateProgress();
     };
+
+    // Watch for header visibility changes via data-header-hidden attribute.
+    // React's state update is async — when the header re-renders with a new
+    // data-header-hidden value, the scroll handler may have already fired
+    // with the stale attribute. The MutationObserver fires synchronously
+    // after React commits, so the bar repositions without waiting for
+    // the next scroll event.
+    let observer: MutationObserver | null = null;
+    if (header) {
+      observer = new MutationObserver(() => {
+        updateBarPosition();
+      });
+      observer.observe(header, {
+        attributes: true,
+        attributeFilter: ["data-header-hidden"],
+      });
+    }
 
     window.addEventListener("scroll", updateProgress, { passive: true });
     window.addEventListener("resize", onResize);
@@ -104,6 +141,7 @@ export default function BlogArticlePage() {
     return () => {
       window.removeEventListener("scroll", updateProgress);
       window.removeEventListener("resize", onResize);
+      observer?.disconnect();
     };
   }, [loading]);
 
@@ -128,8 +166,51 @@ export default function BlogArticlePage() {
 
   return (
     <>
-      {/* Reading progress bar */}
-      <div ref={progressRef} className="fixed left-0 z-50 h-[3px] w-0 bg-blue-500" />
+      {/* SEO meta tags */}
+      <Helmet>
+        <title>{post ? `${post.title} | ${siteName}` : `Blogs | ${siteName}`}</title>
+
+        <meta
+          name="description"
+          content={post?.description ?? "Technical blog articles and deep dives."}
+        />
+
+        <meta name="author" content={post?.author ?? "motebaya"} />
+        <meta name="keywords" content={post?.tags?.join(", ") ?? "blog, programming, tech"} />
+
+        <link rel="canonical" href={canonicalUrl} />
+
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content={siteName} />
+        <meta property="og:title" content={post?.title ?? "Blogs"} />
+        <meta
+          property="og:description"
+          content={post?.description ?? "Technical blog articles and deep dives."}
+        />
+        <meta property="og:url" content={canonicalUrl} />
+        <meta property="og:image" content={ogImageUrl} />
+
+        <meta property="article:published_time" content={post?.publishDate ?? ""} />
+        <meta property="article:author" content={post?.author ?? "motebaya"} />
+        {post?.tags?.map((tag) => (
+          <meta key={tag} property="article:tag" content={tag} />
+        ))}
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={post?.title ?? "Blogs"} />
+        <meta
+          name="twitter:description"
+          content={post?.description ?? "Technical blog articles and deep dives."}
+        />
+        <meta name="twitter:image" content={ogImageUrl} />
+      </Helmet>
+
+      {/* Reading progress bar — uses scaleX + inset-x to avoid horizontal overflow */}
+      <div
+        ref={progressRef}
+        className="fixed inset-x-0 z-50 h-[3px] max-w-[100vw] origin-left bg-blue-500 transition-[top] duration-300"
+        style={{ transform: "scaleX(0)" }}
+      />
 
       <div className="mx-auto max-w-3xl px-4 py-6 sm:px-6">
         {/* Back button */}
@@ -215,6 +296,8 @@ export default function BlogArticlePage() {
           </>
         )}
       </div>
+
+      <BackToTop />
     </>
   );
 }
