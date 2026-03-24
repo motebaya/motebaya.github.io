@@ -8,7 +8,7 @@ export type GitHubError =
   | { type: "invalid"; message: string };
 
 /** Repos to exclude from the project list (not actual projects) */
-const EXCLUDED_REPOS = [GITHUB_USERNAME, "phpreborn", "motebaya.github.io"];
+const EXCLUDED_REPOS = [GITHUB_USERNAME, "phpreborn", "motebaya.github.io", "nekogitv2"];
 
 function isGitHubRepoArray(data: unknown): data is GitHubRepo[] {
   if (!Array.isArray(data)) return false;
@@ -57,9 +57,7 @@ export async function fetchRepos(signal?: AbortSignal): Promise<GitHubRepo[]> {
   }
 
   // Filter out excluded repos, sort by updated_at descending, take first 8
-  const filtered = json.filter(
-    (repo) => !EXCLUDED_REPOS.includes(repo.name.toLowerCase()),
-  );
+  const filtered = json.filter((repo) => !EXCLUDED_REPOS.includes(repo.name.toLowerCase()));
 
   if (filtered.length === 0) {
     const err: GitHubError = { type: "empty" };
